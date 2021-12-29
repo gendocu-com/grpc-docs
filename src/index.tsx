@@ -1,10 +1,14 @@
 import * as React from 'react'
-import styles from './styles.module.css'
+import { GenDocuWidget } from './components/widgets/gendocuWidget'
+import { PseudomutoProtocGenDoc } from './components/widgets/pseudomutoProtocGenDoc'
 
-interface Props {
-  text: string
+export const GRPCGenDocuAPIReference = (props: {
+  project: string
+  organization: string
+}) => {
+  return <GenDocuWidget {...props} />
 }
 
-export const ExampleComponent = ({ text }: Props) => {
-  return <div className={styles.test}>Example Component: {text}</div>
+export const GRPCSelfGeneratedAPIReference = ({ file, scheme }: { file: string, scheme ?: string }) => {
+  return <PseudomutoProtocGenDoc file={file} scheme={scheme} />
 }

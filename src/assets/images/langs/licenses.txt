@@ -1,0 +1,11 @@
+golang.svg -> https://github.com/egonelbre/gophers/blob/master/LICENSE-CC0
+go-log.svg -> https://commons.wikimedia.org/wiki/File:Go_Logo_Blue.svg
+typescript.svg ->
+python-logo.svg -> https://commons.wikimedia.org/wiki/File:Python-logo-notext.svg
+curl-logo.svg -> https://curl.se/logo/ "These versions of the official curl logo are the official ones made by Soft Dreams (Adrian Burcea). The official curl logo since May 26 2016.
+                                        You are free to use these logos for purposes of showing your use of curl, your product's use of curl, general or specific curl information, curl advocacy and similar.
+                                        You are allowed to resize the images and host them yourself as you see fit."
+
+js-logo.svg -> https://commons.wikimedia.org/wiki/File:Unofficial_JavaScript_logo_2.svg  MIT
+java.svg -> https://uxwing.com/java-programming-language-icon/ , Free to use without attribution
+csharp.svg -> https://icon-icons.com/icon/csharp-original-logo/146578 , Free for commercial usage

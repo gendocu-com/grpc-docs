@@ -1,7 +1,12 @@
-import { ExampleComponent } from '.'
+import { GRPCGenDocuAPIReference, GRPCSelfGeneratedAPIReference } from '.'
 
 describe('ExampleComponent', () => {
   it('is truthy', () => {
-    expect(ExampleComponent).toBeTruthy()
+    expect(GRPCSelfGeneratedAPIReference).toBeTruthy()
+  })
+})
+describe('ExampleComponent', () => {
+  it('is truthy', () => {
+    expect(GRPCGenDocuAPIReference).toBeTruthy()
   })
 })

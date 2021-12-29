@@ -1,0 +1,33 @@
+spectype: gendocu
+servers:
+  - selector: "*" # the * must be wrapped with ""
+    envs:
+      - name: "gcp" # the first environment is the default one
+        urls:
+          - grpcwebs://library-app-grpcweb-uqnits2f5q-uc.a.run.app
+          - grpcs://library-app-grpc-uqnits2f5q-uc.a.run.app:443
+documentation:
+  content:
+    introduction:
+      file: docs/introduction.md
+    authentication:
+      text: This API does not require any authentication, but we have added a redundant auth method - Token Auth for demo purposes. You can select it and use it, but the results would be the same as without it.
+
+securitySchemes:
+  - name: public
+    title: Public API
+    description: # you can also use the 'file:' instead of text to load a markdown from external file
+      text: The default authentication method - does not require any authentication. All the endpoints support anonymous users.
+  - name: token-private
+    title: Token Auth
+    description:
+      text: The standard token authentication. This authentication method is only for demo purposes - the backend ignores the token in the current implementation.
+    callAuthentication:
+      token: # e.g. HTTP Header "Authorization: Bearer aaa.bbbbbbb.ccc"
+        exampleValue: "aaa.bbbbbbb.ccc" # this value should be shared across all the schemes. It should have exactly the same scheme for each protocol - if it differs, then it should be separate authentication method
+        grpc:
+          meta: "x-authorization"
+          valuePrefix: "bearer " # including whitespaces, the prefix for each value
+        grpcweb:
+          header: "authorization"
+          valuePrefix: "Bearer " # including whitespaces, the prefix for each value

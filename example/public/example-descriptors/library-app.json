@@ -1,0 +1,374 @@
+{
+  "files": [
+    {
+      "name": "service.proto",
+      "description": "",
+      "package": "gendocu.example.library_app",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": true,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Author",
+          "longName": "Author",
+          "fullName": "gendocu.example.library_app.Author",
+          "description": "[Example]{\"first_name\": \"Stephen\", \"last_name\": \"King\"}",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "first_name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "last_name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "Book",
+          "longName": "Book",
+          "fullName": "gendocu.example.library_app.Book",
+          "description": "The simplified structure that represents a single book.\n[Example]{\"isbn\": \"978-3-16-148410-0\", \"title\": \"The Shining\", \"author\": {\"first_name\": \"Stephen\", \"last_name\": \"King\"}}",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "isbn",
+              "description": "unique identifier",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "title",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "author",
+              "description": "single book author",
+              "label": "",
+              "type": "Author",
+              "longType": "Author",
+              "fullType": "gendocu.example.library_app.Author",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "DeleteBookRequest",
+          "longName": "DeleteBookRequest",
+          "fullName": "gendocu.example.library_app.DeleteBookRequest",
+          "description": "You can delete the books using multiple selectors\n[Example]{\"selector\": {\"isbn\": \"978-3-16-148410-0\"}}\n[Example]{\"selector\": {\"title\": \"The Shining\"}}",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "isbn",
+              "description": "ISBN",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": true,
+              "oneofdecl": "selector",
+              "defaultValue": ""
+            },
+            {
+              "name": "title",
+              "description": "Book title - exact match",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": true,
+              "oneofdecl": "selector",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ListBookResponse",
+          "longName": "ListBookResponse",
+          "fullName": "gendocu.example.library_app.ListBookResponse",
+          "description": "Returns all books available in the library. Keep in mind, that a response might be large.\n[Example] {\"books\": [\n {\"isbn\": \"978-0-74-753274-3\", \"title\": \"Harry Potter and the Philosopher's Stone\", \"author\": {\"first_name\": \"J.K.\", \"last_name\": \"Rowling\"}},\n {\"isbn\": \"978-0-54-501022-1\", \"title\": \"Harry Potter and the Deathly Hallows\", \"author\": {\"first_name\": \"J.K.\", \"last_name\": \"Rowling\"}}\n]}",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "books",
+              "description": "",
+              "label": "repeated",
+              "type": "Book",
+              "longType": "Book",
+              "fullType": "gendocu.example.library_app.Book",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": [
+        {
+          "name": "BookService",
+          "longName": "BookService",
+          "fullName": "gendocu.example.library_app.BookService",
+          "description": "BookService is a simple service that enables listing, creating, or removing the book.",
+          "methods": [
+            {
+              "name": "ListBooks",
+              "description": "ListBooks returns the list of all books available in the library without any pagination.",
+              "requestType": "Empty",
+              "requestLongType": ".google.protobuf.Empty",
+              "requestFullType": "google.protobuf.Empty",
+              "requestStreaming": false,
+              "responseType": "ListBookResponse",
+              "responseLongType": "ListBookResponse",
+              "responseFullType": "gendocu.example.library_app.ListBookResponse",
+              "responseStreaming": false
+            },
+            {
+              "name": "DeleteBook",
+              "description": "DeleteBook deletes the book from the library. Warning! This action cannot be revert and doesn't require any confirmation.",
+              "requestType": "DeleteBookRequest",
+              "requestLongType": "DeleteBookRequest",
+              "requestFullType": "gendocu.example.library_app.DeleteBookRequest",
+              "requestStreaming": false,
+              "responseType": "Book",
+              "responseLongType": "Book",
+              "responseFullType": "gendocu.example.library_app.Book",
+              "responseStreaming": false
+            },
+            {
+              "name": "CreateBook",
+              "description": "CreateBook creates a book in the library. We do not de-duplicate the requests as this is the tutorial API.",
+              "requestType": "Book",
+              "requestLongType": "Book",
+              "requestFullType": "gendocu.example.library_app.Book",
+              "requestStreaming": false,
+              "responseType": "Book",
+              "responseLongType": "Book",
+              "responseFullType": "gendocu.example.library_app.Book",
+              "responseStreaming": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "scalarValueTypes": [
+    {
+      "protoType": "double",
+      "notes": "",
+      "cppType": "double",
+      "csType": "double",
+      "goType": "float64",
+      "javaType": "double",
+      "phpType": "float",
+      "pythonType": "float",
+      "rubyType": "Float"
+    },
+    {
+      "protoType": "float",
+      "notes": "",
+      "cppType": "float",
+      "csType": "float",
+      "goType": "float32",
+      "javaType": "float",
+      "phpType": "float",
+      "pythonType": "float",
+      "rubyType": "Float"
+    },
+    {
+      "protoType": "int32",
+      "notes": "Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead.",
+      "cppType": "int32",
+      "csType": "int",
+      "goType": "int32",
+      "javaType": "int",
+      "phpType": "integer",
+      "pythonType": "int",
+      "rubyType": "Bignum or Fixnum (as required)"
+    },
+    {
+      "protoType": "int64",
+      "notes": "Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead.",
+      "cppType": "int64",
+      "csType": "long",
+      "goType": "int64",
+      "javaType": "long",
+      "phpType": "integer/string",
+      "pythonType": "int/long",
+      "rubyType": "Bignum"
+    },
+    {
+      "protoType": "uint32",
+      "notes": "Uses variable-length encoding.",
+      "cppType": "uint32",
+      "csType": "uint",
+      "goType": "uint32",
+      "javaType": "int",
+      "phpType": "integer",
+      "pythonType": "int/long",
+      "rubyType": "Bignum or Fixnum (as required)"
+    },
+    {
+      "protoType": "uint64",
+      "notes": "Uses variable-length encoding.",
+      "cppType": "uint64",
+      "csType": "ulong",
+      "goType": "uint64",
+      "javaType": "long",
+      "phpType": "integer/string",
+      "pythonType": "int/long",
+      "rubyType": "Bignum or Fixnum (as required)"
+    },
+    {
+      "protoType": "sint32",
+      "notes": "Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s.",
+      "cppType": "int32",
+      "csType": "int",
+      "goType": "int32",
+      "javaType": "int",
+      "phpType": "integer",
+      "pythonType": "int",
+      "rubyType": "Bignum or Fixnum (as required)"
+    },
+    {
+      "protoType": "sint64",
+      "notes": "Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s.",
+      "cppType": "int64",
+      "csType": "long",
+      "goType": "int64",
+      "javaType": "long",
+      "phpType": "integer/string",
+      "pythonType": "int/long",
+      "rubyType": "Bignum"
+    },
+    {
+      "protoType": "fixed32",
+      "notes": "Always four bytes. More efficient than uint32 if values are often greater than 2^28.",
+      "cppType": "uint32",
+      "csType": "uint",
+      "goType": "uint32",
+      "javaType": "int",
+      "phpType": "integer",
+      "pythonType": "int",
+      "rubyType": "Bignum or Fixnum (as required)"
+    },
+    {
+      "protoType": "fixed64",
+      "notes": "Always eight bytes. More efficient than uint64 if values are often greater than 2^56.",
+      "cppType": "uint64",
+      "csType": "ulong",
+      "goType": "uint64",
+      "javaType": "long",
+      "phpType": "integer/string",
+      "pythonType": "int/long",
+      "rubyType": "Bignum"
+    },
+    {
+      "protoType": "sfixed32",
+      "notes": "Always four bytes.",
+      "cppType": "int32",
+      "csType": "int",
+      "goType": "int32",
+      "javaType": "int",
+      "phpType": "integer",
+      "pythonType": "int",
+      "rubyType": "Bignum or Fixnum (as required)"
+    },
+    {
+      "protoType": "sfixed64",
+      "notes": "Always eight bytes.",
+      "cppType": "int64",
+      "csType": "long",
+      "goType": "int64",
+      "javaType": "long",
+      "phpType": "integer/string",
+      "pythonType": "int/long",
+      "rubyType": "Bignum"
+    },
+    {
+      "protoType": "bool",
+      "notes": "",
+      "cppType": "bool",
+      "csType": "bool",
+      "goType": "bool",
+      "javaType": "boolean",
+      "phpType": "boolean",
+      "pythonType": "boolean",
+      "rubyType": "TrueClass/FalseClass"
+    },
+    {
+      "protoType": "string",
+      "notes": "A string must always contain UTF-8 encoded or 7-bit ASCII text.",
+      "cppType": "string",
+      "csType": "string",
+      "goType": "string",
+      "javaType": "String",
+      "phpType": "string",
+      "pythonType": "str/unicode",
+      "rubyType": "String (UTF-8)"
+    },
+    {
+      "protoType": "bytes",
+      "notes": "May contain any arbitrary sequence of bytes.",
+      "cppType": "string",
+      "csType": "ByteString",
+      "goType": "[]byte",
+      "javaType": "ByteString",
+      "phpType": "string",
+      "pythonType": "str",
+      "rubyType": "String (ASCII-8BIT)"
+    }
+  ]
+}

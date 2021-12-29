@@ -1,0 +1,929 @@
+{
+  "files": [
+    {
+      "name": "example.proto",
+      "description": "",
+      "package": "v1",
+      "hasEnums": true,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": true,
+      "enums": [
+        {
+          "name": "E1",
+          "longName": "E1",
+          "fullName": "v1.E1",
+          "description": "",
+          "values": [
+            {
+              "name": "E1_INVALID",
+              "number": "0",
+              "description": ""
+            },
+            {
+              "name": "E1_V1",
+              "number": "1",
+              "description": ""
+            },
+            {
+              "name": "E1_V2",
+              "number": "2",
+              "description": ""
+            },
+            {
+              "name": "E1_V3",
+              "number": "3",
+              "description": ""
+            },
+            {
+              "name": "E1_V4",
+              "number": "4",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "E2",
+          "longName": "EnumMessage1.E2",
+          "fullName": "v1.EnumMessage1.E2",
+          "description": "",
+          "values": [
+            {
+              "name": "E2_INVALID",
+              "number": "0",
+              "description": "intentionally without prefix ENUM_MESSAGE1_"
+            },
+            {
+              "name": "E2_Y1",
+              "number": "1",
+              "description": ""
+            },
+            {
+              "name": "E2_Y2",
+              "number": "2",
+              "description": ""
+            },
+            {
+              "name": "E2_Y3",
+              "number": "3",
+              "description": ""
+            },
+            {
+              "name": "E2_Y4",
+              "number": "4",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "E2",
+          "longName": "EnumMessage2.E2",
+          "fullName": "v1.EnumMessage2.E2",
+          "description": "",
+          "values": [
+            {
+              "name": "E2_INVALID",
+              "number": "0",
+              "description": ""
+            },
+            {
+              "name": "E2_Y1",
+              "number": "1",
+              "description": ""
+            },
+            {
+              "name": "E2_Y2",
+              "number": "2",
+              "description": ""
+            },
+            {
+              "name": "E2_Y3",
+              "number": "3",
+              "description": ""
+            },
+            {
+              "name": "E2_Y4",
+              "number": "4",
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "EnumMessage1",
+          "longName": "EnumMessage1",
+          "fullName": "v1.EnumMessage1",
+          "description": "[Example]{\"e1\": 2, \"e2\":3 }",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "e1",
+              "description": "",
+              "label": "",
+              "type": "E1",
+              "longType": "E1",
+              "fullType": "v1.E1",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "e2",
+              "description": "",
+              "label": "",
+              "type": "E2",
+              "longType": "EnumMessage1.E2",
+              "fullType": "v1.EnumMessage1.E2",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "EnumMessage2",
+          "longName": "EnumMessage2",
+          "fullName": "v1.EnumMessage2",
+          "description": "[Example]{\"e1\": [0, 2], \"e2\":[3] }",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "e1",
+              "description": "",
+              "label": "repeated",
+              "type": "E1",
+              "longType": "E1",
+              "fullType": "v1.E1",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "e2",
+              "description": "",
+              "label": "repeated",
+              "type": "E2",
+              "longType": "EnumMessage2.E2",
+              "fullType": "v1.EnumMessage2.E2",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ExampleMessage1",
+          "longName": "ExampleMessage1",
+          "fullName": "v1.ExampleMessage1",
+          "description": "ExampleMessage1 - Example Leading Comment for ExampleMessage1\n[Example]{\"f1\": 1, \"f2\": 2, \"f3\": 3, \"f4\": 4, \"f5\": 5, \"f6\": 6, \"f7\": 7, \"f8\": 8, \"f9\": 9, \"f10\": 10, \"f11\": 11, \"f12\": 12, \"f13\": true, \"f14\": \"some-string;\", \"f15\": \"MDIxMzQ3ODk0Ng==\"}",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "f1",
+              "description": "",
+              "label": "",
+              "type": "double",
+              "longType": "double",
+              "fullType": "double",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "f2",
+              "description": "",
+              "label": "",
+              "type": "float",
+              "longType": "float",
+              "fullType": "float",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "f3",
+              "description": "",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "f4",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "f5",
+              "description": "",
+              "label": "",
+              "type": "uint32",
+              "longType": "uint32",
+              "fullType": "uint32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "f6",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "f7",
+              "description": "",
+              "label": "",
+              "type": "sint32",
+              "longType": "sint32",
+              "fullType": "sint32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "f8",
+              "description": "",
+              "label": "",
+              "type": "sint64",
+              "longType": "sint64",
+              "fullType": "sint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "f9",
+              "description": "",
+              "label": "",
+              "type": "fixed32",
+              "longType": "fixed32",
+              "fullType": "fixed32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "f10",
+              "description": "",
+              "label": "",
+              "type": "fixed64",
+              "longType": "fixed64",
+              "fullType": "fixed64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "f11",
+              "description": "",
+              "label": "",
+              "type": "sfixed32",
+              "longType": "sfixed32",
+              "fullType": "sfixed32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "f12",
+              "description": "",
+              "label": "",
+              "type": "sfixed64",
+              "longType": "sfixed64",
+              "fullType": "sfixed64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "f13",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "f14",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "f15",
+              "description": "",
+              "label": "",
+              "type": "bytes",
+              "longType": "bytes",
+              "fullType": "bytes",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ExampleMessage2",
+          "longName": "ExampleMessage2",
+          "fullName": "v1.ExampleMessage2",
+          "description": "[Example]{\"f1\": [1], \"f2\": [2], \"f3\": [3], \"f4\": [4], \"f5\": [5], \"f6\": [6], \"f7\": [7], \"f8\": [8], \"f9\": [9], \"f10\": [10],\n   \"f11\": [11], \"f12\": [12], \"f13\": [true], \"f14\": [\"some-string;\"], \"f15\": [\"MDIxMzQ3ODk0Ng==\", \"MDIxMzQ3ODk0Ng==\", \"MDIxMzQ3ODk0Ng==\"]}",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "f1",
+              "description": "",
+              "label": "repeated",
+              "type": "double",
+              "longType": "double",
+              "fullType": "double",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "f2",
+              "description": "",
+              "label": "repeated",
+              "type": "float",
+              "longType": "float",
+              "fullType": "float",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "f3",
+              "description": "",
+              "label": "repeated",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "f4",
+              "description": "",
+              "label": "repeated",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "f5",
+              "description": "",
+              "label": "repeated",
+              "type": "uint32",
+              "longType": "uint32",
+              "fullType": "uint32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "f6",
+              "description": "",
+              "label": "repeated",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "f7",
+              "description": "",
+              "label": "repeated",
+              "type": "sint32",
+              "longType": "sint32",
+              "fullType": "sint32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "f8",
+              "description": "",
+              "label": "repeated",
+              "type": "sint64",
+              "longType": "sint64",
+              "fullType": "sint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "f9",
+              "description": "",
+              "label": "repeated",
+              "type": "fixed32",
+              "longType": "fixed32",
+              "fullType": "fixed32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "f10",
+              "description": "",
+              "label": "repeated",
+              "type": "fixed64",
+              "longType": "fixed64",
+              "fullType": "fixed64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "f11",
+              "description": "",
+              "label": "repeated",
+              "type": "sfixed32",
+              "longType": "sfixed32",
+              "fullType": "sfixed32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "f12",
+              "description": "",
+              "label": "repeated",
+              "type": "sfixed64",
+              "longType": "sfixed64",
+              "fullType": "sfixed64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "f13",
+              "description": "",
+              "label": "repeated",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "f14",
+              "description": "",
+              "label": "repeated",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "f15",
+              "description": "",
+              "label": "repeated",
+              "type": "bytes",
+              "longType": "bytes",
+              "fullType": "bytes",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ExampleMessage3",
+          "longName": "ExampleMessage3",
+          "fullName": "v1.ExampleMessage3",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "msg1",
+              "description": "",
+              "label": "",
+              "type": "ExampleMessage1",
+              "longType": "ExampleMessage1",
+              "fullType": "v1.ExampleMessage1",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "msg2",
+              "description": "",
+              "label": "",
+              "type": "ExampleMessage2",
+              "longType": "ExampleMessage2",
+              "fullType": "v1.ExampleMessage2",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ExampleMessage4",
+          "longName": "ExampleMessage4",
+          "fullName": "v1.ExampleMessage4",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "msg1",
+              "description": "",
+              "label": "repeated",
+              "type": "ExampleMessage1",
+              "longType": "ExampleMessage1",
+              "fullType": "v1.ExampleMessage1",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "msg2",
+              "description": "",
+              "label": "repeated",
+              "type": "ExampleMessage2",
+              "longType": "ExampleMessage2",
+              "fullType": "v1.ExampleMessage2",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "msg3",
+              "description": "",
+              "label": "repeated",
+              "type": "ExampleMessage3",
+              "longType": "ExampleMessage3",
+              "fullType": "v1.ExampleMessage3",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "msg4",
+              "description": "",
+              "label": "repeated",
+              "type": "ExampleMessage4",
+              "longType": "ExampleMessage4",
+              "fullType": "v1.ExampleMessage4",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ReturnType",
+          "longName": "ReturnType",
+          "fullName": "v1.ReturnType",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": false,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": []
+        }
+      ],
+      "services": [
+        {
+          "name": "ExampleService",
+          "longName": "ExampleService",
+          "fullName": "v1.ExampleService",
+          "description": "",
+          "methods": [
+            {
+              "name": "NonRepeated",
+              "description": "",
+              "requestType": "ExampleMessage1",
+              "requestLongType": "ExampleMessage1",
+              "requestFullType": "v1.ExampleMessage1",
+              "requestStreaming": false,
+              "responseType": "ReturnType",
+              "responseLongType": "ReturnType",
+              "responseFullType": "v1.ReturnType",
+              "responseStreaming": false
+            },
+            {
+              "name": "Repeated",
+              "description": "",
+              "requestType": "ExampleMessage2",
+              "requestLongType": "ExampleMessage2",
+              "requestFullType": "v1.ExampleMessage2",
+              "requestStreaming": false,
+              "responseType": "ReturnType",
+              "responseLongType": "ReturnType",
+              "responseFullType": "v1.ReturnType",
+              "responseStreaming": false
+            },
+            {
+              "name": "NonRepeatedEnums",
+              "description": "",
+              "requestType": "EnumMessage1",
+              "requestLongType": "EnumMessage1",
+              "requestFullType": "v1.EnumMessage1",
+              "requestStreaming": false,
+              "responseType": "ReturnType",
+              "responseLongType": "ReturnType",
+              "responseFullType": "v1.ReturnType",
+              "responseStreaming": false
+            },
+            {
+              "name": "RepeatedEnums",
+              "description": "",
+              "requestType": "EnumMessage2",
+              "requestLongType": "EnumMessage2",
+              "requestFullType": "v1.EnumMessage2",
+              "requestStreaming": false,
+              "responseType": "ReturnType",
+              "responseLongType": "ReturnType",
+              "responseFullType": "v1.ReturnType",
+              "responseStreaming": false
+            },
+            {
+              "name": "NoRepeatedObject",
+              "description": "",
+              "requestType": "ExampleMessage3",
+              "requestLongType": "ExampleMessage3",
+              "requestFullType": "v1.ExampleMessage3",
+              "requestStreaming": false,
+              "responseType": "ReturnType",
+              "responseLongType": "ReturnType",
+              "responseFullType": "v1.ReturnType",
+              "responseStreaming": false
+            },
+            {
+              "name": "RepeatedObject",
+              "description": "",
+              "requestType": "ExampleMessage4",
+              "requestLongType": "ExampleMessage4",
+              "requestFullType": "v1.ExampleMessage4",
+              "requestStreaming": false,
+              "responseType": "ReturnType",
+              "responseLongType": "ReturnType",
+              "responseFullType": "v1.ReturnType",
+              "responseStreaming": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "scalarValueTypes": [
+    {
+      "protoType": "double",
+      "notes": "",
+      "cppType": "double",
+      "csType": "double",
+      "goType": "float64",
+      "javaType": "double",
+      "phpType": "float",
+      "pythonType": "float",
+      "rubyType": "Float"
+    },
+    {
+      "protoType": "float",
+      "notes": "",
+      "cppType": "float",
+      "csType": "float",
+      "goType": "float32",
+      "javaType": "float",
+      "phpType": "float",
+      "pythonType": "float",
+      "rubyType": "Float"
+    },
+    {
+      "protoType": "int32",
+      "notes": "Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead.",
+      "cppType": "int32",
+      "csType": "int",
+      "goType": "int32",
+      "javaType": "int",
+      "phpType": "integer",
+      "pythonType": "int",
+      "rubyType": "Bignum or Fixnum (as required)"
+    },
+    {
+      "protoType": "int64",
+      "notes": "Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead.",
+      "cppType": "int64",
+      "csType": "long",
+      "goType": "int64",
+      "javaType": "long",
+      "phpType": "integer/string",
+      "pythonType": "int/long",
+      "rubyType": "Bignum"
+    },
+    {
+      "protoType": "uint32",
+      "notes": "Uses variable-length encoding.",
+      "cppType": "uint32",
+      "csType": "uint",
+      "goType": "uint32",
+      "javaType": "int",
+      "phpType": "integer",
+      "pythonType": "int/long",
+      "rubyType": "Bignum or Fixnum (as required)"
+    },
+    {
+      "protoType": "uint64",
+      "notes": "Uses variable-length encoding.",
+      "cppType": "uint64",
+      "csType": "ulong",
+      "goType": "uint64",
+      "javaType": "long",
+      "phpType": "integer/string",
+      "pythonType": "int/long",
+      "rubyType": "Bignum or Fixnum (as required)"
+    },
+    {
+      "protoType": "sint32",
+      "notes": "Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s.",
+      "cppType": "int32",
+      "csType": "int",
+      "goType": "int32",
+      "javaType": "int",
+      "phpType": "integer",
+      "pythonType": "int",
+      "rubyType": "Bignum or Fixnum (as required)"
+    },
+    {
+      "protoType": "sint64",
+      "notes": "Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s.",
+      "cppType": "int64",
+      "csType": "long",
+      "goType": "int64",
+      "javaType": "long",
+      "phpType": "integer/string",
+      "pythonType": "int/long",
+      "rubyType": "Bignum"
+    },
+    {
+      "protoType": "fixed32",
+      "notes": "Always four bytes. More efficient than uint32 if values are often greater than 2^28.",
+      "cppType": "uint32",
+      "csType": "uint",
+      "goType": "uint32",
+      "javaType": "int",
+      "phpType": "integer",
+      "pythonType": "int",
+      "rubyType": "Bignum or Fixnum (as required)"
+    },
+    {
+      "protoType": "fixed64",
+      "notes": "Always eight bytes. More efficient than uint64 if values are often greater than 2^56.",
+      "cppType": "uint64",
+      "csType": "ulong",
+      "goType": "uint64",
+      "javaType": "long",
+      "phpType": "integer/string",
+      "pythonType": "int/long",
+      "rubyType": "Bignum"
+    },
+    {
+      "protoType": "sfixed32",
+      "notes": "Always four bytes.",
+      "cppType": "int32",
+      "csType": "int",
+      "goType": "int32",
+      "javaType": "int",
+      "phpType": "integer",
+      "pythonType": "int",
+      "rubyType": "Bignum or Fixnum (as required)"
+    },
+    {
+      "protoType": "sfixed64",
+      "notes": "Always eight bytes.",
+      "cppType": "int64",
+      "csType": "long",
+      "goType": "int64",
+      "javaType": "long",
+      "phpType": "integer/string",
+      "pythonType": "int/long",
+      "rubyType": "Bignum"
+    },
+    {
+      "protoType": "bool",
+      "notes": "",
+      "cppType": "bool",
+      "csType": "bool",
+      "goType": "bool",
+      "javaType": "boolean",
+      "phpType": "boolean",
+      "pythonType": "boolean",
+      "rubyType": "TrueClass/FalseClass"
+    },
+    {
+      "protoType": "string",
+      "notes": "A string must always contain UTF-8 encoded or 7-bit ASCII text.",
+      "cppType": "string",
+      "csType": "string",
+      "goType": "string",
+      "javaType": "String",
+      "phpType": "string",
+      "pythonType": "str/unicode",
+      "rubyType": "String (UTF-8)"
+    },
+    {
+      "protoType": "bytes",
+      "notes": "May contain any arbitrary sequence of bytes.",
+      "cppType": "string",
+      "csType": "ByteString",
+      "goType": "[]byte",
+      "javaType": "ByteString",
+      "phpType": "string",
+      "pythonType": "str",
+      "rubyType": "String (ASCII-8BIT)"
+    }
+  ]
+}
