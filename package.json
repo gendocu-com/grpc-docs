@@ -1,6 +1,6 @@
 {
   "name": "grpc-docs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "gRPC API Documentation",
   "author": "gendocu-com",
   "license": "MIT",
@@ -26,8 +26,8 @@
   "peerDependencies": {
     "react": "^16.0.0",
     "react-dom": "^16.13.1",
-    "rollup": "^0.60",
-    "react-is": "^16.8.0"
+    "react-is": "^16.8.0",
+    "rollup": "^0.60"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
