@@ -1,5 +1,5 @@
 import { ProgrammingLanguageType } from '../../common/Types'
-import { Build } from 'GendocuPublicApis/sdk/ts/gendocu/sdk_generator/v3/api_description_service_pb'
+import {Build, Environment} from 'GendocuPublicApis/sdk/ts/gendocu/sdk_generator/v3/api_description_service_pb'
 import { ProgrammingLanguage } from 'GendocuPublicApis/sdk/ts/gendocu/common/types_pb'
 
 export class NoBackendCodeProvider {
@@ -20,7 +20,7 @@ export class NoBackendCodeProvider {
       console.error()
       return Promise.reject('selected unsupported programming language')
     }
-    const env = this.build.getEnvsList()[0]
+    const env: Environment | undefined = this.build.getEnvsList()[0]
     return new Promise<
       { methodId: string; snippetCode: string; output: string }[]
     >((resolve) => {
@@ -34,7 +34,8 @@ export class NoBackendCodeProvider {
             snippetCode:
               "grpcurl -d '{}' " +
               convertUrlToGRPCurl(
-                env.getServiceGrpcUrlMap().get(el.getServiceId())
+                env?.getServiceGrpcUrlMap().get(el.getServiceId()) ||
+                  'grpc://unknown-grpc-url'
               ) +
               ' ' +
               el.getServiceId().substr(1) +

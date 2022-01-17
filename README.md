@@ -13,6 +13,15 @@ Live demo is available at [https://gendocu-demo.web.app/](https://gendocu-demo.w
 
 <img alt="gRPC Docs logo" style="background: white; padding: 8px 16px; border: 1px solid #aaa; border-radius: 8px; margin: auto;" src="https://raw.githubusercontent.com/gendocu-com/grpc-docs/master//docs/images/grpc-docs-screenshot.png" width="600px" />
 
+## Quickstart
+
+```bash
+docker run -rm --network host \
+  -v <your-proto-root>:/input \
+  -v $(pwd)/output:/output \
+  gendocu/grpc-docs
+```
+
 ## Install
 
 ```bash

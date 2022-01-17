@@ -1,10 +1,10 @@
-import {RequestCode} from './RequestCode'
-import {MethodOutput} from './MethodOutput'
-import React, {Fragment} from 'react'
+import React, { Fragment } from 'react'
+import { RequestCode } from './RequestCode'
+import { MethodOutput } from './MethodOutput'
 import styled from 'styled-components'
-import {colors, grid} from '../../Constant'
-import {ProgrammingLanguageType} from '../../../../common/Types'
-import {CodeProvider} from '../../../../common/CodeProvider'
+import { colors, grid } from '../../Constant'
+import { ProgrammingLanguageType } from '../../../../common/Types'
+import { CodeProvider } from '../../../../common/CodeProvider'
 
 interface MethodSnippetsProps {
   availableProgrammingLangs: ProgrammingLanguageType[]
@@ -15,12 +15,12 @@ interface MethodSnippetsProps {
 }
 
 export const MethodSnippets = ({
-                                 snippets,
-                                 availableProgrammingLangs,
-                                 codeProvider,
-                                 selectedProgrammingLanguage,
-                                 selectProgrammingLanguage
-                               }: MethodSnippetsProps) => {
+  snippets,
+  availableProgrammingLangs,
+  codeProvider,
+  selectedProgrammingLanguage,
+  selectProgrammingLanguage
+}: MethodSnippetsProps) => {
   return (
     <Fragment>
       <RequestCode
@@ -31,10 +31,12 @@ export const MethodSnippets = ({
         selectedProgrammingLanguage={selectedProgrammingLanguage}
         selectProgrammingLanguage={selectProgrammingLanguage}
       />
-      {snippets?.output && <Fragment>
-        <OutputSeparator>Example output (decoded)</OutputSeparator>
-        <MethodOutput output={snippets?.output || ''} language='json'/>
-      </Fragment>}
+      {snippets?.output && (
+        <Fragment>
+          <OutputSeparator>Example output (decoded)</OutputSeparator>
+          <MethodOutput output={snippets?.output || ''} language='json' />
+        </Fragment>
+      )}
     </Fragment>
   )
 }

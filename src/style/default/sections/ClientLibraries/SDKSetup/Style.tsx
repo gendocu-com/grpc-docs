@@ -1,5 +1,5 @@
-import styled from 'styled-components'
 import React, { Fragment } from 'react'
+import styled from 'styled-components'
 import { CopyButton } from '../../../common/CopyButton'
 import { colors, grid } from '../../../Constant'
 

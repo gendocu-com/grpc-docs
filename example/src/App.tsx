@@ -2,7 +2,6 @@ import React from 'react'
 
 import { GRPCGenDocuAPIReference } from 'grpc-docs'
 // import { GRPCSelfGeneratedAPIReference } from 'grpc-docs'
-import 'grpc-docs/dist/index.css'
 
 const App = () => {
   return <GRPCGenDocuAPIReference project='LibraryApp' organization='gendocu' />

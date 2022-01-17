@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Build, Environment } from 'GendocuPublicApis/sdk/ts/gendocu/sdk_generator/v3/api_description_service_pb'
+import {
+  Build,
+  Environment
+} from 'GendocuPublicApis/sdk/ts/gendocu/sdk_generator/v3/api_description_service_pb'
 import { Loading } from '../../common/Loading'
 import {
   APIDescriptionGeneratorModel,
@@ -101,25 +104,23 @@ export const PseudomutoProtocGenDoc = ({
         build.setData(data)
         if (promise) {
           promise
-            .then((res: APISpec) => {
+            .then((res?: APISpec) => {
               const env = new Environment()
               env.setId('default')
-              build
-                .getData()
+              build?.getData()
                 ?.getServicesMap()
                 .forEach((entry) => {
                   const name = entry.getFullName()
-                  const d = res.servers.find((el) => {
-                    return minimatch(name, el.selector)
-                  })
-                  if (d && d.envs.length > 0) {
+                  const d =
+                    res?.servers?.find((el) => {
+                      return minimatch(name, el.selector)
+                    }) || undefined
+                  if (d && d.envs && d.envs.length > 0) {
                     const grpc = d.envs[0].urls.find(
                       (el) => el.startsWith('grpc') && !el.startsWith('grpcweb')
                     )
                     if (grpc) {
-                      env
-                        .getServiceGrpcUrlMap()
-                        .set(entry.getServiceId(), grpc)
+                      env.getServiceGrpcUrlMap().set(entry.getServiceId(), grpc)
                     }
                     const grpcweb = d.envs[0].urls.find((el) =>
                       el.startsWith('grpcweb')
@@ -261,10 +262,10 @@ interface FileDocDescription {
 }
 
 interface APISpec {
-  servers: APISpecServer[]
+  servers: APISpecServer[] | undefined
 }
 interface APISpecServer {
-  envs: APISpecServerEnvironment[]
+  envs: APISpecServerEnvironment[] | undefined
   selector: string
 }
 interface APISpecServerEnvironment {
