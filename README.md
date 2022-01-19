@@ -60,7 +60,7 @@ const Example = () => {
   return <GRPCSelfGeneratedAPIReference file='url-to-json-description-of-api'/>
 }
 ```
-4. [optional] You can also provide the environments and authentication description - add `scheme='path-to-scheme-file.yaml'`. Use [GenDocu Cloud Api Specification Scheme](https://wiki.gendocu.com/docs/documentation-setup/#providing-additional-information-to-the-generator). You can find example file [here](https://github.com/gendocu-com-examples/library-app/blob/master/proto/gendocu_apispec.yaml).
+4. [optional] You can also provide the environments and authentication description - add `scheme='path-to-scheme-file.yaml'`. Use [GenDocu Cloud Api Specification Scheme](https://wiki.gendocu.com/docs/providing-grpc-api-information/#providing-grpc-api-information-to-gendocu-generator). You can find example file [here](https://github.com/gendocu-com-examples/library-app/blob/master/proto/gendocu_apispec.yaml).
 
 ### With GenDocu
 
