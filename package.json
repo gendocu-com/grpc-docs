@@ -70,7 +70,7 @@
   ],
   "dependencies": {
     "@improbable-eng/grpc-web": "^0.15.0",
-    "GendocuPublicApis": "https://git.gendocu.com/gendocu/GendocuPublicApis.git#master",
+    "GendocuPublicApis": "git+https://git.gendocu.com/gendocu/GendocuPublicApis.git#master",
     "google-protobuf": "^3.19.1",
     "js-yaml": "^4.1.0",
     "minimatch": "^3.0.4",

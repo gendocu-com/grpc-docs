@@ -1292,6 +1292,13 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
+"@improbable-eng/grpc-web@^0.14.0":
+  version "0.14.1"
+  resolved "https://registry.yarnpkg.com/@improbable-eng/grpc-web/-/grpc-web-0.14.1.tgz#f4662f64dc89c0f956a94bb8a3b576556c74589c"
+  integrity sha512-XaIYuunepPxoiGVLLHmlnVminUGzBTnXr8Wv7khzmLWbNw4TCwJKX09GSMJlKhu/TRk6gms0ySFxewaETSBqgw==
+  dependencies:
+    browser-headers "^0.4.1"
+
 "@improbable-eng/grpc-web@^0.15.0":
   version "0.15.0"
   resolved "https://registry.yarnpkg.com/@improbable-eng/grpc-web/-/grpc-web-0.15.0.tgz#3e47e9fdd90381a74abd4b7d26e67422a2a04bef"
@@ -2281,9 +2288,12 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
-"GendocuPublicApis@https://git.gendocu.com/gendocu/GendocuPublicApis.git#master":
-  version "0.0.0"
-  resolved "https://git.gendocu.com/gendocu/GendocuPublicApis.git#6bdd9bc376fc46e4f14f1b1190993108e6e28062"
+"GendocuPublicApis@git+https://git.gendocu.com/gendocu/GendocuPublicApis.git#master":
+  version "1.0.0"
+  resolved "git+https://git.gendocu.com/gendocu/GendocuPublicApis.git#c3cc7e02610ddaf4bedde8ae17dd427e852ca8c6"
+  dependencies:
+    "@improbable-eng/grpc-web" "^0.14.0"
+    google-protobuf "^3.15.8"
 
 abab@^2.0.0:
   version "2.0.5"
@@ -5830,6 +5840,11 @@ globrex@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/globrex/-/globrex-0.1.2.tgz#dd5d9ec826232730cd6793a5e33a9302985e6098"
   integrity sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==
+
+google-protobuf@^3.15.8:
+  version "3.19.3"
+  resolved "https://registry.yarnpkg.com/google-protobuf/-/google-protobuf-3.19.3.tgz#2d5fb0c77584d675fca509a1fbc80c64fff471c9"
+  integrity sha512-3GRDj8o9XjcALYjgxNKeD7Wm6w/V8r1Jo4sLYMic9+VaIMLBx8TQeHP9yaoRoDymNONhnkmmveDPyjw/Fpw8+A==
 
 google-protobuf@^3.19.1:
   version "3.19.1"

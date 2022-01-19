@@ -74,7 +74,7 @@ import { GRPCGenDocuAPIReference } from 'grpc-docs'
 import 'grpc-docs/dist/index.css'
 
 const Example = () => {
-  return <GRPCGenDocuAPIReference projectName='your-gendocu-project' organization='your-organization'/>
+  return <GRPCGenDocuAPIReference project='your-gendocu-project' organization='your-organization'/>
 }
 ```
 
