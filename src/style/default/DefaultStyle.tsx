@@ -7,6 +7,7 @@ import { ProgrammingLanguageType } from '../../common/Types'
 import { Loading } from '../../common/Loading'
 import { CodeProvider } from '../../common/CodeProvider'
 import { colors, grid } from './Constant'
+import {CodeSnippet} from "../../common/CodeSnippet";
 
 interface DefaultStyleProps {
   build: Build
@@ -14,6 +15,7 @@ interface DefaultStyleProps {
   selectedProgrammingLang: ProgrammingLanguageType
   setProgrammingLang: (l: ProgrammingLanguageType) => void
   codeProvider: CodeProvider
+  codeSnippets: Map<string, CodeSnippet>
 }
 
 export const DefaultStyle = ({
@@ -21,7 +23,8 @@ export const DefaultStyle = ({
   availableProgrammingLangs,
   selectedProgrammingLang,
   setProgrammingLang,
-  codeProvider
+  codeProvider,
+  codeSnippets
 }: DefaultStyleProps) => {
   if (availableProgrammingLangs === null) {
     return <Loading />
@@ -44,6 +47,7 @@ export const DefaultStyle = ({
       {/*  authMethods={build.getAuthenticationDescription()?.getMethodsList()} */}
       {/* /> */}
       <APIReference
+        codeSnippets={codeSnippets}
         data={build.getData()}
         codeProvider={codeProvider}
         sdkProgrammingLangs={availableProgrammingLangs || []}

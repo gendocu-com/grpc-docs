@@ -24,7 +24,8 @@ export class GendocuCodeProvider {
   }
 
   getAllSnippets(
-    lang: ProgrammingLanguageType
+    lang: ProgrammingLanguageType,
+    sessionId?: string,
   ): Promise<{ methodId: string; snippetCode: string; output: string }[]> {
     return new Promise<
       { methodId: string; snippetCode: string; output: string }[]
@@ -34,7 +35,7 @@ export class GendocuCodeProvider {
       req.setProgrammingLang(lang)
       this.sdkGeneratorClient.generateInputCodeSnippets(
         req,
-        getMetadata(),
+        getMetadata(sessionId),
         (err, resp) => {
           if (!!err || resp === null) {
             if (!!err && LanguageNotSupported(err)) {

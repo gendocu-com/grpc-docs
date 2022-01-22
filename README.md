@@ -87,11 +87,11 @@ You can also implement your own backend wrapper - API documentation is available
 | Setup steps | ✅ | ✅ | ✅ |
 | API Reference | ✅ | ✅ | ✅ |
 | Code snippets | ❌ | ✅ | ✅ |
+| Password protected documentation | ❌ | ✅ | ✅ |
 | Programming languages | 1 | 6 | 6 |
 | Environment selection | ❌^ | ❌^ | ✅ |
 | Authentication description | ❌^ | ❌^ | ✅ |
 | Try it out | ❌ | ❌^ |  ✅ |
-| Password protected documentation | ❌ | ❌^ | ✅ |
 | RBAC protected documentation | ❌ | ❌ | ✅ |
 | SSO | ❌ | ❌ | ✅ |
 

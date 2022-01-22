@@ -12,6 +12,7 @@ import { ServiceDescriptionsInOrder } from '../../../../common/ServiceOrder'
 import { Loading } from '../../../../common/Loading'
 import { CodeProvider } from '../../../../common/CodeProvider'
 import { ProgrammingLanguageType } from '../../../../common/Types'
+import { CodeSnippet } from '../../../../common/CodeSnippet'
 
 interface APIReferenceProps {
   data: APIDescriptionGeneratorModel | undefined
@@ -19,6 +20,7 @@ interface APIReferenceProps {
   codeProvider: CodeProvider
   selectedProgrammingLanguage: ProgrammingLanguageType
   selectProgrammingLanguage: (p: ProgrammingLanguageType) => void
+  codeSnippets: Map<string, CodeSnippet>
 }
 
 export const APIReference = ({
@@ -26,12 +28,10 @@ export const APIReference = ({
   codeProvider,
   sdkProgrammingLangs,
   selectedProgrammingLanguage,
-  selectProgrammingLanguage
+  selectProgrammingLanguage,
+  codeSnippets
 }: APIReferenceProps) => {
   const [services, setService] = useState<ServiceDescription[]>([])
-  const [snippets, setSnippets] = useState(
-    new Map<string, { code: string; output: string }>()
-  )
   const [sid2method, setSid2method] = useState(
     new Map<string, MethodDescription[]>()
   )
@@ -51,16 +51,6 @@ export const APIReference = ({
     })
     setSid2method(mm)
   }, [data])
-  useEffect(() => {
-    const m = new Map<string, { code: string; output: string }>()
-    const resp = codeProvider.getAllSnippets(selectedProgrammingLanguage)
-    resp.then((el) => {
-      el.forEach((el) => {
-        m.set(el.methodId, { code: el.snippetCode, output: el.output })
-      })
-      setSnippets(m)
-    })
-  }, [selectedProgrammingLanguage])
   if (!data) {
     return <Loading />
   }
@@ -70,7 +60,7 @@ export const APIReference = ({
         <div key={key}>
           <Service service={value} />
           {sid2method.get(value.getServiceId())?.map((method, key) => {
-            const codeSnippet = snippets.get(method.getMethodId())
+            const codeSnippet = codeSnippets.get(method.getMethodId())
             return (
               <Fragment key={key}>
                 <Method

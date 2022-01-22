@@ -17,6 +17,8 @@ import { NoBackendCodeProvider } from '../codeProviders/NoBackendCodeProvider'
 import { ProgrammingLanguage } from 'GendocuPublicApis/sdk/ts/gendocu/common/types_pb'
 import yaml from 'js-yaml'
 import minimatch from 'minimatch'
+import { CodeSnippet } from '../../common/CodeSnippet'
+import { ProgrammingLanguageType } from '../../common/Types'
 
 interface DescriptorSetWidgetProps {
   file: string
@@ -29,6 +31,25 @@ export const PseudomutoProtocGenDoc = ({
 }: DescriptorSetWidgetProps) => {
   const [err, setError] = useState('')
   const [apiBuild, setAPIBuild] = useState<Build | undefined>(undefined)
+  const [selectedProgrammingLanguage, setSelectedProgrammingLanguage] =
+    useState<ProgrammingLanguageType>(ProgrammingLanguage.GRPCURL)
+  const [codeSnippets, setCodeSnippets] = useState(
+    new Map<string, CodeSnippet>()
+  )
+  useEffect(() => {
+    if (!apiBuild) {
+      return
+    }
+    const codeProvider = new NoBackendCodeProvider(apiBuild)
+    const m = new Map<string, { code: string; output: string }>()
+    const resp = codeProvider.getAllSnippets(selectedProgrammingLanguage)
+    resp.then((el) => {
+      el.forEach((el) => {
+        m.set(el.methodId, { code: el.snippetCode, output: el.output })
+      })
+      setCodeSnippets(m)
+    })
+  }, [apiBuild, selectedProgrammingLanguage])
   useEffect(() => {
     const promise = scheme
       ? fetch(scheme)
@@ -107,7 +128,8 @@ export const PseudomutoProtocGenDoc = ({
             .then((res?: APISpec) => {
               const env = new Environment()
               env.setId('default')
-              build?.getData()
+              build
+                ?.getData()
                 ?.getServicesMap()
                 .forEach((entry) => {
                   const name = entry.getFullName()
@@ -154,10 +176,11 @@ export const PseudomutoProtocGenDoc = ({
   }
   return (
     <DefaultStyle
+      codeSnippets={codeSnippets}
       build={apiBuild}
       availableProgrammingLangs={[ProgrammingLanguage.GRPCURL]}
       selectedProgrammingLang={ProgrammingLanguage.GRPCURL}
-      setProgrammingLang={() => {}}
+      setProgrammingLang={setSelectedProgrammingLanguage}
       codeProvider={new NoBackendCodeProvider(apiBuild)}
     />
   )

@@ -1,6 +1,6 @@
 {
   "name": "grpc-docs",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "gRPC API Documentation",
   "author": "gendocu-com",
   "license": "MIT",
@@ -24,14 +24,11 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "react": "^16.0.0",
-    "react-dom": "^16.13.1",
-    "react-is": "^16.8.0",
-    "rollup": "^0.60"
+    "react": "^16.0.0"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^7.2.1",
     "@types/google-protobuf": "^3.15.5",
     "@types/jest": "^25.1.4",
@@ -46,7 +43,7 @@
     "@typescript-eslint/parser": "^2.26.0",
     "babel-eslint": "^10.0.3",
     "cross-env": "^7.0.2",
-    "eslint": "^6.8.0",
+    "eslint": "^8.7.0",
     "eslint-config-prettier": "^6.7.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-config-standard-react": "^9.2.0",
@@ -62,7 +59,7 @@
     "prettier": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "^3.4.1",
+    "react-scripts": "^5.0.0",
     "typescript": "^3.7.5"
   },
   "files": [
@@ -70,12 +67,16 @@
   ],
   "dependencies": {
     "@improbable-eng/grpc-web": "^0.15.0",
-    "GendocuPublicApis": "git+https://git.gendocu.com/gendocu/GendocuPublicApis.git#master",
+    "@types/minimatch": "^3.0.5",
+    "GendocuPublicApis": "git+https://github.com/gendocu-com/gendocu-public-api-sdk#master",
     "google-protobuf": "^3.19.1",
     "js-yaml": "^4.1.0",
     "minimatch": "^3.0.4",
     "react-copy-to-clipboard": "^5.0.4",
+    "react-dom": "^16.13.1",
+    "react-is": "^16.8.0",
     "react-syntax-highlighter": "^15.4.5",
+    "rollup": "^0.60",
     "rollup-plugin-smart-asset": "^2.1.2",
     "styled-components": "^5.3.3"
   }
