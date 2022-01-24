@@ -1,6 +1,6 @@
 {
   "name": "grpc-docs",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "gRPC API Documentation",
   "author": "gendocu-com",
   "license": "MIT",
