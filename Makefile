@@ -1,4 +1,6 @@
-
+# test the grpc-docs download in multiple node versions
+test-after-deploy:
+	bash scripts/test-install.sh
 deploy:
 	yarn publish
 	make deploy-docker

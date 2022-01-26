@@ -68,7 +68,7 @@
   "dependencies": {
     "@improbable-eng/grpc-web": "^0.15.0",
     "@types/minimatch": "^3.0.5",
-    "GendocuPublicApis": "git+https://github.com/gendocu-com/gendocu-public-api-sdk#master",
+    "GendocuPublicApis": "git+https://git.gendocu.com/gendocu/GendocuPublicApis.git#master",
     "google-protobuf": "^3.19.1",
     "js-yaml": "^4.1.0",
     "minimatch": "^3.0.4",
