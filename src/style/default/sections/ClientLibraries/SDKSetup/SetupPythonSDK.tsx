@@ -10,6 +10,7 @@ import {
 export const SetupPythonSDK = (props: {
   repositoryUrl: string
   projectName: string
+  sdkBranch: string
 }) => {
   const projectName = props.projectName.toLowerCase().replaceAll(' ', '')
   return (
@@ -19,7 +20,7 @@ export const SetupPythonSDK = (props: {
       <BashLine>
         {'git clone \\\n\t' +
           props.repositoryUrl +
-          ' \\\n\t--branch master  ' +
+          ' \\\n\t--branch ' + props.sdkBranch + '  ' +
           projectName}
       </BashLine>
       <SetupSubtitle>Then start with a code:</SetupSubtitle>

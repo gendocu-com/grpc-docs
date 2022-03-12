@@ -24,6 +24,7 @@ docker run -rm --network host \
 
 ## Install
 
+Only for node 12+ (you can check your node version with `node -v`)
 ```bash
 npm install --save grpc-docs
 ```

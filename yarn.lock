@@ -3179,9 +3179,9 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
-"GendocuPublicApis@git+https://github.com/gendocu-com/gendocu-public-api-sdk#master":
+"GendocuPublicApis@git+https://git.gendocu.com/gendocu/GendocuPublicApis.git#master":
   version "1.0.0"
-  resolved "git+https://github.com/gendocu-com/gendocu-public-api-sdk#a09f3ba4204ddc0b533ace8236fe9a7d02411bc1"
+  resolved "git+https://git.gendocu.com/gendocu/GendocuPublicApis.git#3a55afc4d4c4782f0dd35b08fe35d889b94ff325"
   dependencies:
     "@improbable-eng/grpc-web" "^0.14.0"
     google-protobuf "^3.15.8"
@@ -5917,6 +5917,13 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
+"gendocu-internal-apis@https://github.com/gendocu-com/gendocu-internal-apis#master":
+  version "1.0.0"
+  resolved "https://github.com/gendocu-com/gendocu-internal-apis#263cfac8a13b9fce6c1060c7f70d68fdadb942ed"
+  dependencies:
+    "@improbable-eng/grpc-web" "^0.14.0"
+    google-protobuf "^3.15.8"
+
 generic-names@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/generic-names/-/generic-names-2.0.1.tgz#f8a378ead2ccaa7a34f0317b05554832ae41b872"
@@ -6094,6 +6101,25 @@ graceful-fs@^4.2.4, graceful-fs@^4.2.6, graceful-fs@^4.2.9:
   version "4.2.9"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.9.tgz#041b05df45755e587a24942279b9d113146e1c96"
   integrity sha512-NtNxqUcXgpW2iMrfqSfR73Glt39K+BLwWsPs94yR63v45T0Wbej7eRmL5cWfwEgqXnmjQp3zaJTshdRW/qC2ZQ==
+
+grpc-docs@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/grpc-docs/-/grpc-docs-1.0.6.tgz#de5686887c1177f3e7e95ce0ed87c2b91b9121dc"
+  integrity sha512-JA2QQf8DV2oSCKD+tClEcZ89S+ogqelZuBC0yLWiZW1pDKSOw7Devsx1o12Z1Ii05ETdIKbL4P765wviumVszw==
+  dependencies:
+    "@improbable-eng/grpc-web" "^0.15.0"
+    "@types/minimatch" "^3.0.5"
+    GendocuPublicApis "git+https://git.gendocu.com/gendocu/GendocuPublicApis.git#master"
+    google-protobuf "^3.19.1"
+    js-yaml "^4.1.0"
+    minimatch "^3.0.4"
+    react-copy-to-clipboard "^5.0.4"
+    react-dom "^16.13.1"
+    react-is "^16.8.0"
+    react-syntax-highlighter "^15.4.5"
+    rollup "^0.60"
+    rollup-plugin-smart-asset "^2.1.2"
+    styled-components "^5.3.3"
 
 gzip-size@^3.0.0:
   version "3.0.0"

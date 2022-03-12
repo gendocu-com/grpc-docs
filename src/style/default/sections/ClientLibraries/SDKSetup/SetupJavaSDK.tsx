@@ -3,10 +3,10 @@ import { BashLine, FileContent, SetupTitle } from './Style'
 
 export const SetupJavaSDK = (props: {
   repositoryUrl: string
-  projectName: string
   pathToBinary: string
+  sdkRepoName: string
+  sdkBranch: string
 }) => {
-  const projectName = props.projectName.replaceAll(' ', '')
   const gradle =
     'plugins {\n' +
     '  id "org.ajoberstar.grgit" version "4.1.0"\n' +
@@ -25,26 +25,28 @@ export const SetupJavaSDK = (props: {
     '    implementation "io.grpc:grpc-api:1.41.0"\n' +
     '    implementation "io.grpc:grpc-protobuf:1.41.0"\n' +
     '    implementation files("sdk/' +
-    projectName +
+    props.sdkRepoName  +
     props.pathToBinary +
-    projectName +
+    props.sdkRepoName  +
     '.jar")\n' +
     '}\n' +
     'import org.ajoberstar.grgit.Grgit\n' +
     'task downloadSDK {\n' +
     '    doLast {\n' +
     '        def grgit = Grgit.clone(dir: System.getProperty("user.dir")+"/sdk/' +
-    projectName +
+    props.sdkRepoName  +
     '", uri: \'' +
     props.repositoryUrl +
-    "')\n" +
+    '\', refToCheckout: \'' +
+    props.sdkBranch +
+    '\')\n' +
     '        println grgit.describe()\n' +
     '    }\n' +
     '}\n' +
     'task updateSDK {\n' +
     '    doLast {\n' +
     '        def grgit = Grgit.open(dir: System.getProperty("user.dir")+"/sdk/' +
-    projectName +
+    props.sdkRepoName  +
     '")\n' +
     '        grgit.pull()\n' +
     '   }\n' +

@@ -12,6 +12,8 @@ interface ClientLibrariesProps {
   protoUrl: string
   repositoryUrl: string
   projectName: string
+  sdkRepoName: string
+  sdkBranch: string
   availableSetupLangs: ProgrammingLanguageType[]
   selectedProgrammingLang: ProgrammingLanguageType
   setProgrammingLang: (l: ProgrammingLanguageType) => void
@@ -62,6 +64,8 @@ const ClientLibrariesSelector = (
           repositoryUrl={props.repositoryUrl}
           lang={props.selectedProgrammingLang}
           projectName={props.projectName}
+          sdkRepoName={props.sdkRepoName}
+          sdkBranch={props.sdkBranch}
         />
       </SDKSetupWrapper>
     </ClientLibrariesWrapper>

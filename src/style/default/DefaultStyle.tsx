@@ -39,6 +39,8 @@ export const DefaultStyle = ({
           setProgrammingLang={setProgrammingLang}
           repositoryUrl={build.getSdkProvisioning()?.getFetchUrl() || ''}
           projectName={build.getApiName()}
+          sdkRepoName={build.getSdkProvisioning()?.getSdkRepoCommitSha() || ''}
+          sdkBranch={''}
         />
       )}
       {/* TODO implement me */}

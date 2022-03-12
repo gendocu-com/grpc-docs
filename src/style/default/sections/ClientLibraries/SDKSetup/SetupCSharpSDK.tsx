@@ -4,7 +4,7 @@ import { BashLine, FileContent, SetupTitle } from './Style'
 export const SetupCSharpSDK = (props: {
   repositoryUrl: string
   projectName: string
-  commitSha: string
+  sdkBranch: string
 }) => {
   const projectName = props.projectName.replaceAll(' ', '')
   return (
@@ -14,7 +14,7 @@ export const SetupCSharpSDK = (props: {
       <BashLine>
         {'git clone ' +
           props.repositoryUrl +
-          ' \\\n\t --branch master ../' +
+          ' \\\n\t --branch ' + props.sdkBranch + ' ../' +
           projectName}
       </BashLine>
       <FileContent fileName='YourProject.csproj'>
