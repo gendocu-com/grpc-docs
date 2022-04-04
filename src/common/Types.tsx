@@ -41,6 +41,8 @@ export function programmingLangToName(lang: ProgrammingLanguageType) {
       return 'Golang'
     case ProgrammingLanguage.TYPESCRIPT:
       return 'Typescript'
+    case ProgrammingLanguage.KOTLIN:
+      return "Kotlin"
     case ProgrammingLanguage.PYTHON:
       return 'Python 3'
     case ProgrammingLanguage.JAVASCRIPT:

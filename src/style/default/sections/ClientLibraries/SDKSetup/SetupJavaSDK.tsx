@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { BashLine, FileContent, SetupTitle } from './Style'
+import {BashLine, FileContent, SectionSeparator, SetupTitle} from './Style'
 
 export const SetupJavaSDK = (props: {
   repositoryUrl: string
@@ -53,6 +53,33 @@ export const SetupJavaSDK = (props: {
     '}'
   return (
     <Fragment>
+      <SetupTitle>Maven</SetupTitle>
+      <BashLine>{`mvn scm:checkout -DconnectionUrl=scm:git:${props.repositoryUrl} -DscmVersionType=${props.sdkBranch} -DcheckoutDirectory=sdk/${props.sdkRepoName}`}</BashLine>
+      <FileContent fileName={"pom.xml"} >
+        {`<dependency>
+    <groupId>com.${props.sdkRepoName}</groupId>
+    <artifactId>${props.sdkRepoName}</artifactId>
+    <version>1.0</version>
+    <scope>system</scope>
+    <systemPath>\${project.basedir}/sdk/${props.sdkRepoName}/sdk/java/${props.sdkRepoName}.jar</systemPath>
+</dependency>
+<dependency>
+    <groupId>io.grpc</groupId>
+    <artifactId>grpc-netty</artifactId>
+    <version>1.41.2</version>
+</dependency>
+<dependency>
+    <groupId>io.grpc</groupId>
+    <artifactId>grpc-protobuf</artifactId>
+    <version>1.41.2</version>
+</dependency>
+<dependency>
+    <groupId>io.grpc</groupId>
+    <artifactId>grpc-stub</artifactId>
+    <version>1.41.2</version>
+</dependency>`}
+      </FileContent>
+      <SectionSeparator/>
       <SetupTitle>Gradle</SetupTitle>
       <BashLine>gradle downloadSDK</BashLine>
       <FileContent fileName='build.gradle'>{gradle}</FileContent>

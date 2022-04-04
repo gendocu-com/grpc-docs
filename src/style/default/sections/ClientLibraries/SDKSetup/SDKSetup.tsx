@@ -6,6 +6,7 @@ import {SetupPythonSDK} from "./SetupPythonSDK";
 import {SetupJavascriptSDK} from "./SetupJavascriptSDK";
 import {SetupTypescriptSDK} from "./SetupTypescriptSDK";
 import {SetupCSharpSDK} from "./SetupCSharpSDK";
+import {SetupKotlinSDK} from "./SetupKotlinSDK";
 import {ProgrammingLanguageType} from "../../../../../common/Types";
 import {SetupGrpcurl} from "./SetupGrpcurl";
 
@@ -41,6 +42,10 @@ export const SDKSetup = (props: SDKSetupProps) => {
       return <SetupCSharpSDK projectName={props.projectName}
                              sdkBranch={props.sdkBranch}
                              repositoryUrl={props.repositoryUrl}></SetupCSharpSDK>
+    case ProgrammingLanguage.KOTLIN:
+     return <SetupKotlinSDK sdkRepoProjectName={props.sdkRepoName} repositoryUrl={props.repositoryUrl}
+                            projectName={props.projectName} pathToBinary={"/sdk/java/"}
+                            branch={props.sdkBranch}/>
     case ProgrammingLanguage.GRPCURL:
       return <SetupGrpcurl />
     default:

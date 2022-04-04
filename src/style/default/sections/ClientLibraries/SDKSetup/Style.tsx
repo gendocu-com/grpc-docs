@@ -13,6 +13,10 @@ export const SetupSubtitle = styled.div`
   font-weight: bold;
   margin: ${grid(1)}px 0px;
 `
+export const SectionSeparator = styled.div`
+    height: ${grid(4)}px;
+    width: 100%;
+`
 export const BashLine = (props: { children: string }) => {
   return (
     <BashLineWrapper>
