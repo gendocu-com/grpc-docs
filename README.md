@@ -52,13 +52,13 @@ You can use this widget standalone or with GenDocu Cloud gRPC CI/CD. Feature com
 [protoc-gen-doc](https://github.com/pseudomuto/protoc-gen-doc): `protoc --doc_out=./ --doc_opt=json,description.json *.proto`
 1. Inside your React project create API Reference component - you can see example of usage in `example/src/App.tsx`
 ```tsx
-import React, { Component } from 'react'
+import React from 'react'
 
 import { GRPCSelfGeneratedAPIReference } from 'grpc-docs'
-import 'grpc-docs/dist/index.css'
 
 const Example = () => {
-  return <GRPCSelfGeneratedAPIReference file='url-to-json-description-of-api'/>
+  return <GRPCSelfGeneratedAPIReference file='example-descriptors/description.json'/>
+  // return <GRPCSelfGeneratedAPIReference file='url-to-json-description-of-api'/>
 }
 ```
 4. [optional] You can also provide the environments and authentication description - add `scheme='path-to-scheme-file.yaml'`. Use [GenDocu Cloud Api Specification Scheme](https://wiki.gendocu.com/docs/providing-grpc-api-information/#providing-grpc-api-information-to-gendocu-generator). You can find example file [here](https://github.com/gendocu-com-examples/library-app/blob/master/proto/gendocu_apispec.yaml).
@@ -69,14 +69,15 @@ const Example = () => {
 1. Create a project on [Gendocu Cloud](https://gendocu.com)
 1. Use component inside your React project
 ```tsx
-import React, { Component } from 'react'
+import React from 'react'
 
 import { GRPCGenDocuAPIReference } from 'grpc-docs'
-import 'grpc-docs/dist/index.css'
 
-const Example = () => {
-  return <GRPCGenDocuAPIReference project='your-gendocu-project' organization='your-organization'/>
+const App = () => {
+  //return <GRPCGenDocuAPIReference project='your-gendocu-project' organization='your-organization'/>
+  return <GRPCGenDocuAPIReference project='LibraryApp' organization='gendocu'/>
 }
+export default App;
 ```
 
 You can also implement your own backend wrapper - API documentation is available [here](https://doc.gendocu.com/gendocu/api/GendocuPublicApis).
