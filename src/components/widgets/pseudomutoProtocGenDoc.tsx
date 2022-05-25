@@ -21,13 +21,15 @@ import { CodeSnippet } from '../../common/CodeSnippet'
 import { ProgrammingLanguageType } from '../../common/Types'
 
 interface DescriptorSetWidgetProps {
-  file: string
+  file?: string
+  definition?: string
   scheme?: string
 }
 
 export const PseudomutoProtocGenDoc = ({
   file,
-  scheme
+  scheme,
+  definition
 }: DescriptorSetWidgetProps) => {
   const [err, setError] = useState('')
   const [apiBuild, setAPIBuild] = useState<Build | undefined>(undefined)
@@ -51,122 +53,130 @@ export const PseudomutoProtocGenDoc = ({
     })
   }, [apiBuild, selectedProgrammingLanguage])
   useEffect(() => {
-    const promise = scheme
-      ? fetch(scheme)
-          .then((res) => res.text())
-          .then((res) => yaml.load(res) as APISpec)
-      : undefined
-    fetch(file)
-      .then((res) => res.json())
-      .then((res) => {
-        const data = new APIDescriptionGeneratorModel()
-        data.setDescription(
-          'Documentation generated with github.com/gendocu-com/grpc-docs'
+    ;(async () => {
+      let apiSpec
+      if (scheme) {
+        const resp = await fetch(scheme)
+        apiSpec = yaml.load(await resp.text()) as APISpec
+      }
+      let protocDefinition
+      if (definition) {
+        protocDefinition = JSON.parse(definition)
+      } else if (file) {
+        const resp = await fetch(file)
+        protocDefinition = await resp.json()
+      }
+
+      if (!file && !definition) {
+        throw new Error(
+          'Make sure you provide either the raw definition or a file to fetch the protoc definition'
         )
-        const map = data.getMethodsMap()
-        res.files.forEach((el: FileDocDescription) => {
-          el.services.forEach((service: ServiceDocDescription) => {
-            const srvc = new ServiceDescription()
-            srvc.setServiceId('.' + service.fullName)
-            srvc.setDescription(service.description)
-            srvc.setShortName(service.name)
-            srvc.setFullName(service.fullName)
-            srvc.setSourceProtoFile(el.name)
-            data.getServicesMap().set(service.fullName, srvc)
-            service.methods.forEach((method: MethodDocDescription) => {
-              const m = new MethodDescription()
-              m.setName(method.name)
-              m.setDescription(cleanDescription(method.description))
-              m.setMethodId(srvc.getServiceId() + '.' + method.name)
-              m.setServiceId(srvc.getServiceId())
-              m.setInTypeId(getPrimitiveTypename(method.requestFullType))
-              m.setInStreaming(method.requestStreaming)
-              m.setOutTypeId(getPrimitiveTypename(method.responseFullType))
-              m.setOutStreaming(method.responseStreaming)
-              m.setSourceProtoFile(el.name)
-              map.set(m.getMethodId(), m)
-            })
-          })
-          el.messages.forEach((type: TypeDocDescription) => {
-            const typeDescription = new TypeDescription()
-            typeDescription.setDescription(cleanDescription(type.description))
-            typeDescription.setFullName(type.fullName)
-            typeDescription.setShortName(type.name)
-            typeDescription.setTypeId(getPrimitiveTypename(type.fullName))
-            type.fields.forEach((el) => {
-              const f = new FieldDescription()
-              f.setTypeId(getPrimitiveTypename(el.fullType))
-              f.setName(el.name || el.fullType)
-              f.setDescription(cleanDescription(el.description))
-              if (el.isoneof) {
-                f.setOneOf(el.oneofdecl)
-              }
-              f.setRepeated(el.label.indexOf('repeated') !== -1)
-              f.setOptional(false) // TODO
-              f.setRequired(false) // TODO
-              typeDescription.addFields(f)
-            })
-            data.getTypesMap().set(typeDescription.getTypeId(), typeDescription)
-          })
-          el.enums.forEach((e: EnumDocDescription) => {
-            const typeDescription = new TypeDescription()
-            typeDescription.setTypeId(e.fullName)
-            typeDescription.setFullName(e.fullName)
-            typeDescription.setDescription(e.description)
-            const enumDescription = new EnumDescription()
-            e.values.forEach((x) => {
-              enumDescription.getValuesMap().set(x.name, +x.number)
-            })
-            typeDescription.setEnumDescription(enumDescription)
-            data.getTypesMap().set(typeDescription.getTypeId(), typeDescription)
+      }
+
+      const data = new APIDescriptionGeneratorModel()
+      data.setDescription(
+        'Documentation generated with github.com/gendocu-com/grpc-docs'
+      )
+      const map = data.getMethodsMap()
+      protocDefinition.files.forEach((el: FileDocDescription) => {
+        el.services.forEach((service: ServiceDocDescription) => {
+          const srvc = new ServiceDescription()
+          srvc.setServiceId('.' + service.fullName)
+          srvc.setDescription(service.description)
+          srvc.setShortName(service.name)
+          srvc.setFullName(service.fullName)
+          srvc.setSourceProtoFile(el.name)
+          data.getServicesMap().set(service.fullName, srvc)
+          service.methods.forEach((method: MethodDocDescription) => {
+            const m = new MethodDescription()
+            m.setName(method.name)
+            m.setDescription(cleanDescription(method.description))
+            m.setMethodId(srvc.getServiceId() + '.' + method.name)
+            m.setServiceId(srvc.getServiceId())
+            m.setInTypeId(getPrimitiveTypename(method.requestFullType))
+            m.setInStreaming(method.requestStreaming)
+            m.setOutTypeId(getPrimitiveTypename(method.responseFullType))
+            m.setOutStreaming(method.responseStreaming)
+            m.setSourceProtoFile(el.name)
+            map.set(m.getMethodId(), m)
           })
         })
-        const build = new Build()
-        build.setData(data)
-        if (promise) {
-          promise
-            .then((res?: APISpec) => {
-              const env = new Environment()
-              env.setId('default')
-              build
-                ?.getData()
-                ?.getServicesMap()
-                .forEach((entry) => {
-                  const name = entry.getFullName()
-                  const d =
-                    res?.servers?.find((el) => {
-                      return minimatch(name, el.selector)
-                    }) || undefined
-                  if (d && d.envs && d.envs.length > 0) {
-                    const grpc = d.envs[0].urls.find(
-                      (el) => el.startsWith('grpc') && !el.startsWith('grpcweb')
-                    )
-                    if (grpc) {
-                      env.getServiceGrpcUrlMap().set(entry.getServiceId(), grpc)
-                    }
-                    const grpcweb = d.envs[0].urls.find((el) =>
-                      el.startsWith('grpcweb')
-                    )
-                    if (grpcweb) {
-                      env
-                        .getServiceWebgrpcUrlMap()
-                        .set(entry.getServiceId(), grpcweb)
-                    }
-                  }
-                })
-              build.setEnvsList([env])
-              setAPIBuild(build)
+        el.messages.forEach((type: TypeDocDescription) => {
+          const typeDescription = new TypeDescription()
+          typeDescription.setDescription(cleanDescription(type.description))
+          typeDescription.setFullName(type.fullName)
+          typeDescription.setShortName(type.name)
+          typeDescription.setTypeId(getPrimitiveTypename(type.fullName))
+          type.fields.forEach((el) => {
+            const f = new FieldDescription()
+            f.setTypeId(getPrimitiveTypename(el.fullType))
+            f.setName(el.name || el.fullType)
+            f.setDescription(cleanDescription(el.description))
+            if (el.isoneof) {
+              f.setOneOf(el.oneofdecl)
+            }
+            f.setRepeated(el.label.indexOf('repeated') !== -1)
+            f.setOptional(false) // TODO
+            f.setRequired(false) // TODO
+            typeDescription.addFields(f)
+          })
+          data.getTypesMap().set(typeDescription.getTypeId(), typeDescription)
+        })
+        el.enums.forEach((e: EnumDocDescription) => {
+          const typeDescription = new TypeDescription()
+          typeDescription.setTypeId(e.fullName)
+          typeDescription.setFullName(e.fullName)
+          typeDescription.setDescription(e.description)
+          const enumDescription = new EnumDescription()
+          e.values.forEach((x) => {
+            enumDescription.getValuesMap().set(x.name, +x.number)
+          })
+          typeDescription.setEnumDescription(enumDescription)
+          data.getTypesMap().set(typeDescription.getTypeId(), typeDescription)
+        })
+      })
+      const build = new Build()
+      build.setData(data)
+      if (apiSpec) {
+        try {
+          const res = apiSpec
+          const env = new Environment()
+          env.setId('default')
+          build
+            ?.getData()
+            ?.getServicesMap()
+            .forEach((entry) => {
+              const name = entry.getFullName()
+              const d =
+                res?.servers?.find((el) => {
+                  return minimatch(name, el.selector)
+                }) || undefined
+              if (d && d.envs && d.envs.length > 0) {
+                const grpc = d.envs[0].urls.find(
+                  (el) => el.startsWith('grpc') && !el.startsWith('grpcweb')
+                )
+                if (grpc) {
+                  env.getServiceGrpcUrlMap().set(entry.getServiceId(), grpc)
+                }
+                const grpcweb = d.envs[0].urls.find((el) =>
+                  el.startsWith('grpcweb')
+                )
+                if (grpcweb) {
+                  env
+                    .getServiceWebgrpcUrlMap()
+                    .set(entry.getServiceId(), grpcweb)
+                }
+              }
             })
-            .catch((err) => {
-              setError(err.toString())
-            })
-        } else {
+          build.setEnvsList([env])
           setAPIBuild(build)
+        } catch (err: any) {
+          setError(err.toString())
         }
-      })
-      .catch((err) => {
-        setError(err.toString())
-      })
+      } else {
+        setAPIBuild(build)
+      }
+    })()
   }, [])
   if (err) {
     return <h1 style={{ color: 'red' }}>Received error: {err}</h1>
