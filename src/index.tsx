@@ -12,12 +12,20 @@ export const GRPCGenDocuAPIReference = (props: {
 
 export const GRPCSelfGeneratedAPIReference = ({
   file,
-  scheme
+  scheme,
+  definition
 }: {
-  file: string
+  file?: string
+  definition?: string
   scheme?: string
 }) => {
-  return <PseudomutoProtocGenDoc file={file} scheme={scheme} />
+  return (
+    <PseudomutoProtocGenDoc
+      file={file}
+      scheme={scheme}
+      definition={definition}
+    />
+  )
 }
 
 interface Config {
