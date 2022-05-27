@@ -67,8 +67,8 @@ export const PseudomutoProtocGenDoc = ({
         protocDefinition = await resp.json()
       }
 
-      if (!file && !definition) {
-        throw new Error(
+      if ((!file && !definition) || (file && definition)) {
+        setError(
           'Make sure you provide either the raw definition or a file to fetch the protoc definition'
         )
       }
@@ -170,8 +170,12 @@ export const PseudomutoProtocGenDoc = ({
             })
           build.setEnvsList([env])
           setAPIBuild(build)
-        } catch (err: any) {
-          setError(err.toString())
+        } catch (err) {
+          if (err instanceof Error) {
+            setError(err.message)
+          } else {
+            throw err
+          }
         }
       } else {
         setAPIBuild(build)
