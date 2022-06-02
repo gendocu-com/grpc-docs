@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react'
-import { ServiceError } from 'GendocuPublicApis/sdk/ts/gendocu/sdk_generator/v3/api_description_service_pb_service'
+import { ServiceError } from 'gendocu-public-apis/sdk/ts/gendocu/sdk_generator/v3/api_description_service_pb_service'
 import { colors, grid, style } from './Constant'
 import styled from 'styled-components'
 

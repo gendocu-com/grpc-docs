@@ -1,5 +1,5 @@
-import * as gendocu_common_types_pb from 'GendocuPublicApis/sdk/ts/gendocu/common/types_pb'
-import { ProgrammingLanguage } from 'GendocuPublicApis/sdk/ts/gendocu/common/types_pb'
+import * as gendocu_common_types_pb from 'gendocu-public-apis/sdk/ts/gendocu/common/types_pb'
+import { ProgrammingLanguage } from 'gendocu-public-apis/sdk/ts/gendocu/common/types_pb'
 import golang_logo from '../assets/images/langs/go-logo.svg'
 import typescript_logo from '../assets/images/langs/typescript.svg'
 import python_logo from '../assets/images/langs/python-logo.svg'

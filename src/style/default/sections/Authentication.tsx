@@ -2,7 +2,7 @@ import React from 'react'
 import { SectionTitle } from '../common/SectionTitle'
 import { TwoPaneWrapper, Pane } from '../common/TwoPaneWrapper'
 import { SectionWrapper } from '../common/SectionWrapper'
-import { AuthenticationMethod } from 'GendocuPublicApis/sdk/ts/gendocu/sdk_generator/v3/authentication_model_pb'
+import { AuthenticationMethod } from 'gendocu-public-apis/sdk/ts/gendocu/sdk_generator/v3/authentication_model_pb'
 
 interface AuthenticationProps {
   description: string

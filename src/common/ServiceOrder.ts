@@ -1,4 +1,4 @@
-import { ServiceDescription } from 'GendocuPublicApis/sdk/ts/gendocu/sdk_generator/v3/sdk_generator_pb'
+import { ServiceDescription } from 'gendocu-public-apis/sdk/ts/gendocu/sdk_generator/v3/sdk_generator_pb'
 import * as jspb from 'google-protobuf'
 
 export function ServiceDescriptionsInOrder(

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { SectionTitle } from '../../common/SectionTitle'
 import { TwoPaneWrapper, Pane } from '../../common/TwoPaneWrapper'
-import { ServiceDescription } from 'GendocuPublicApis/sdk/ts/gendocu/sdk_generator/v3/sdk_generator_pb'
+import { ServiceDescription } from 'gendocu-public-apis/sdk/ts/gendocu/sdk_generator/v3/sdk_generator_pb'
 import { toHumanReadableName } from '../../../../common/ServiceOrder'
 import {colors, grid} from "../../Constant";
 import styled from "styled-components";

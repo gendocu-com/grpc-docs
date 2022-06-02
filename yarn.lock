@@ -5917,6 +5917,14 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
+gendocu-public-apis@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/gendocu-public-apis/-/gendocu-public-apis-1.0.0.tgz#ba9212207c6b4c9ba131b6cafb82deb07f068010"
+  integrity sha512-2XbY+joWdhBK2Z7b5NaP8+3NkOYZjHkqux83lpgdShp1QN9eu10s/MojCaJ7WiCTB7ZKIkfqUtWgWipDxDPjpw==
+  dependencies:
+    "@improbable-eng/grpc-web" "^0.14.0"
+    google-protobuf "^3.15.8"
+
 generic-names@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/generic-names/-/generic-names-2.0.1.tgz#f8a378ead2ccaa7a34f0317b05554832ae41b872"

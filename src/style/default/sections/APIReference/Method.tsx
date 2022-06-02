@@ -4,7 +4,7 @@ import { SectionSubtitle } from '../../common/SectionSubtitle'
 import {
   MethodDescription,
   TypeDescription
-} from 'GendocuPublicApis/sdk/ts/gendocu/sdk_generator/v3/sdk_generator_pb'
+} from 'gendocu-public-apis/sdk/ts/gendocu/sdk_generator/v3/sdk_generator_pb'
 import {
   cutOutCommonPackage,
   toHumanReadableName
@@ -16,7 +16,7 @@ import * as jspb from 'google-protobuf'
 import { MethodSnippets } from './MethodSnippets'
 import { CodeProvider } from '../../../../common/CodeProvider'
 import { ProgrammingLanguageType } from '../../../../common/Types'
-import {ProgrammingLanguage} from "GendocuPublicApis/sdk/ts/gendocu/common/types_pb";
+import {ProgrammingLanguage} from "gendocu-public-apis/sdk/ts/gendocu/common/types_pb";
 
 interface MethodProps {
   method: MethodDescription

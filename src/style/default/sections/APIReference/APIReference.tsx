@@ -7,7 +7,7 @@ import {
   APIDescriptionGeneratorModel,
   MethodDescription,
   ServiceDescription
-} from 'GendocuPublicApis/sdk/ts/gendocu/sdk_generator/v3/sdk_generator_pb'
+} from 'gendocu-public-apis/sdk/ts/gendocu/sdk_generator/v3/sdk_generator_pb'
 import { ServiceDescriptionsInOrder } from '../../../../common/ServiceOrder'
 import { Loading } from '../../../../common/Loading'
 import { CodeProvider } from '../../../../common/CodeProvider'

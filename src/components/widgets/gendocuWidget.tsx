@@ -3,13 +3,13 @@ import { DefaultStyle } from '../../style/default/DefaultStyle'
 import {
   SdkGeneratorClient,
   ServiceError
-} from 'GendocuPublicApis/sdk/ts/gendocu/sdk_generator/v3/api_description_service_pb_service'
+} from 'gendocu-public-apis/sdk/ts/gendocu/sdk_generator/v3/api_description_service_pb_service'
 import {
   Build,
   BuildSelectorRequest,
   BuildWithOrgAndName,
   EnterPasswordRequest
-} from 'GendocuPublicApis/sdk/ts/gendocu/sdk_generator/v3/api_description_service_pb'
+} from 'gendocu-public-apis/sdk/ts/gendocu/sdk_generator/v3/api_description_service_pb'
 import { Loading } from '../../common/Loading'
 import { ErrorMessage } from '../../common/ErrorMessage'
 import { ProgrammingLanguageType } from '../../common/Types'

@@ -1,5 +1,5 @@
 import React, {Fragment} from "react";
-import {ProgrammingLanguage} from "GendocuPublicApis/sdk/ts/gendocu/common/types_pb";
+import {ProgrammingLanguage} from "gendocu-public-apis/sdk/ts/gendocu/common/types_pb";
 import {SetupGolangSDK} from "./SetupGolangSDK";
 import {SetupJavaSDK} from "./SetupJavaSDK";
 import {SetupPythonSDK} from "./SetupPythonSDK";

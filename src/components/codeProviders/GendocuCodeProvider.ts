@@ -1,12 +1,12 @@
 import { ProgrammingLanguageType } from '../../common/Types'
-import { SdkGeneratorClient } from 'GendocuPublicApis/sdk/ts/gendocu/sdk_generator/v3/api_description_service_pb_service'
+import { SdkGeneratorClient } from 'gendocu-public-apis/sdk/ts/gendocu/sdk_generator/v3/api_description_service_pb_service'
 import {
   GenDocuBackendSdkBackend,
   getMetadata,
   LanguageNotSupported
 } from '../../common/GenDocuBackendUtils'
-import { GenerateInputCodeSnippetsRequest } from 'GendocuPublicApis/sdk/ts/gendocu/sdk_generator/v3/api_description_service_pb'
-import { ProgrammingLanguage } from 'GendocuPublicApis/sdk/ts/gendocu/common/types_pb'
+import { GenerateInputCodeSnippetsRequest } from 'gendocu-public-apis/sdk/ts/gendocu/sdk_generator/v3/api_description_service_pb'
+import { ProgrammingLanguage } from 'gendocu-public-apis/sdk/ts/gendocu/common/types_pb'
 
 export class GendocuCodeProvider {
   buildId: string

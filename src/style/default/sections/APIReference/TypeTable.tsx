@@ -4,7 +4,7 @@ import {colors, grid, style} from '../../Constant'
 import {
   TypeDescription,
   FieldDescription
-} from 'GendocuPublicApis/sdk/ts/gendocu/sdk_generator/v3/sdk_generator_pb'
+} from 'gendocu-public-apis/sdk/ts/gendocu/sdk_generator/v3/sdk_generator_pb'
 import * as jspb from 'google-protobuf'
 import { getTypeName } from '../../../../common/PBUtils'
 
