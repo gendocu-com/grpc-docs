@@ -181,7 +181,7 @@ export const PseudomutoProtocGenDoc = ({
         setAPIBuild(build)
       }
     })()
-  }, [])
+  }, [file, scheme, definition])
   if (err) {
     return <h1 style={{ color: 'red' }}>Received error: {err}</h1>
   }
