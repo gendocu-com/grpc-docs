@@ -3,13 +3,13 @@ import { DefaultStyle } from '../../style/default/DefaultStyle'
 import {
   SdkGeneratorClient,
   ServiceError
-} from 'gendocu-public-apis/sdk/ts/gendocu/sdk_generator/v3/api_description_service_pb_service'
+} from 'GendocuPublicApis/sdk/ts/gendocu/sdk_generator/v3/api_description_service_pb_service'
 import {
   Build,
   BuildSelectorRequest,
   BuildWithOrgAndName,
   EnterPasswordRequest
-} from 'gendocu-public-apis/sdk/ts/gendocu/sdk_generator/v3/api_description_service_pb'
+} from 'GendocuPublicApis/sdk/ts/gendocu/sdk_generator/v3/api_description_service_pb'
 import { Loading } from '../../common/Loading'
 import { ErrorMessage } from '../../common/ErrorMessage'
 import { ProgrammingLanguageType } from '../../common/Types'
@@ -51,7 +51,9 @@ export const GenDocuWidget = (props: GenDocuWidgetProps) => {
     setProgrammingLanguageRaw(p)
   }
   var sdkGenerator = new SdkGeneratorClient(GenDocuBackendSdkBackend)
+  console.log("here!")
   useEffect(() => {
+    console.log("here2!")
     const buildwithorgandname = new BuildWithOrgAndName()
     buildwithorgandname.setApiName(props.project)
     buildwithorgandname.setOrganization(props.organization)
@@ -91,6 +93,7 @@ export const GenDocuWidget = (props: GenDocuWidgetProps) => {
                 setProgrammingLanguage(langs[0])
               }
             }
+            console.log("available langs", langs)
             setAvailableProgrammingLangs(langs)
           }
         }

@@ -1,6 +1,6 @@
 import { ProgrammingLanguageType } from '../../common/Types'
-import {Build, Environment} from 'gendocu-public-apis/sdk/ts/gendocu/sdk_generator/v3/api_description_service_pb'
-import { ProgrammingLanguage } from 'gendocu-public-apis/sdk/ts/gendocu/common/types_pb'
+import {Build, Environment} from 'GendocuPublicApis/sdk/ts/gendocu/sdk_generator/v3/api_description_service_pb'
+import { ProgrammingLanguage } from 'GendocuPublicApis/sdk/ts/gendocu/common/types_pb'
 
 export class NoBackendCodeProvider {
   build: Build

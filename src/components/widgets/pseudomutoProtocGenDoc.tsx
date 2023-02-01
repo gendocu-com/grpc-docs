@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {
   Build,
   Environment
-} from 'gendocu-public-apis/sdk/ts/gendocu/sdk_generator/v3/api_description_service_pb'
+} from 'GendocuPublicApis/sdk/ts/gendocu/sdk_generator/v3/api_description_service_pb'
 import { Loading } from '../../common/Loading'
 import {
   APIDescriptionGeneratorModel,
@@ -11,10 +11,10 @@ import {
   MethodDescription,
   ServiceDescription,
   TypeDescription
-} from 'gendocu-public-apis/sdk/ts/gendocu/sdk_generator/v3/sdk_generator_pb'
+} from 'GendocuPublicApis/sdk/ts/gendocu/sdk_generator/v3/sdk_generator_pb'
 import { DefaultStyle } from '../../style/default/DefaultStyle'
 import { NoBackendCodeProvider } from '../codeProviders/NoBackendCodeProvider'
-import { ProgrammingLanguage } from 'gendocu-public-apis/sdk/ts/gendocu/common/types_pb'
+import { ProgrammingLanguage } from 'GendocuPublicApis/sdk/ts/gendocu/common/types_pb'
 import yaml from 'js-yaml'
 import minimatch from 'minimatch'
 import { CodeSnippet } from '../../common/CodeSnippet'

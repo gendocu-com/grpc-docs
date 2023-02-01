@@ -1,5 +1,5 @@
 import React, {Fragment} from "react";
-import {ProgrammingLanguage} from "gendocu-public-apis/sdk/ts/gendocu/common/types_pb";
+import {ProgrammingLanguage} from "GendocuPublicApis/sdk/ts/gendocu/common/types_pb";
 import {SetupGolangSDK} from "./SetupGolangSDK";
 import {SetupJavaSDK} from "./SetupJavaSDK";
 import {SetupPythonSDK} from "./SetupPythonSDK";
@@ -7,6 +7,7 @@ import {SetupJavascriptSDK} from "./SetupJavascriptSDK";
 import {SetupTypescriptSDK} from "./SetupTypescriptSDK";
 import {SetupCSharpSDK} from "./SetupCSharpSDK";
 import {SetupKotlinSDK} from "./SetupKotlinSDK";
+import {SetupRustSDK} from "./SetupRustSDK";
 import {ProgrammingLanguageType} from "../../../../../common/Types";
 import {SetupGrpcurl} from "./SetupGrpcurl";
 
@@ -48,6 +49,9 @@ export const SDKSetup = (props: SDKSetupProps) => {
                             branch={props.sdkBranch}/>
     case ProgrammingLanguage.GRPCURL:
       return <SetupGrpcurl />
+    case ProgrammingLanguage.RUST:
+      return <SetupRustSDK sdkRepoProjectName={props.sdkRepoName} repositoryUrl={props.repositoryUrl}
+                           branch={props.sdkBranch}/>
     default:
       return <Fragment></Fragment>
   }

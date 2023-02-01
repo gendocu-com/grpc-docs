@@ -2629,10 +2629,10 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
-"@types/google-protobuf@^3.15.5":
-  version "3.15.5"
-  resolved "https://registry.yarnpkg.com/@types/google-protobuf/-/google-protobuf-3.15.5.tgz#644b2be0f5613b1f822c70c73c6b0e0b5b5fa2ad"
-  integrity sha512-6bgv24B+A2bo9AfzReeg5StdiijKzwwnRflA8RLd1V4Yv995LeTmo0z69/MPbBDFSiZWdZHQygLo/ccXhMEDgw==
+"@types/google-protobuf@^3.15.6":
+  version "3.15.6"
+  resolved "https://registry.yarnpkg.com/@types/google-protobuf/-/google-protobuf-3.15.6.tgz#674a69493ef2c849b95eafe69167ea59079eb504"
+  integrity sha512-pYVNNJ+winC4aek+lZp93sIKxnXt5qMkuKmaqS3WGuTq0Bw1ZDYNBgzG5kkdtwcv+GmYJGo3yEg6z2cKKAiEdw==
 
 "@types/graceful-fs@^4.1.2":
   version "4.1.5"
@@ -3181,7 +3181,15 @@
 
 "GendocuPublicApis@git+https://git.gendocu.com/gendocu/GendocuPublicApis.git#master":
   version "1.0.0"
-  resolved "git+https://git.gendocu.com/gendocu/GendocuPublicApis.git#3a55afc4d4c4782f0dd35b08fe35d889b94ff325"
+  uid "83be829a28b0c28c85c18f8d8a2748efbfa58819"
+  resolved "git+https://git.gendocu.com/gendocu/GendocuPublicApis.git#83be829a28b0c28c85c18f8d8a2748efbfa58819"
+  dependencies:
+    "@improbable-eng/grpc-web" "^0.14.0"
+    google-protobuf "^3.15.8"
+
+"GendocuPublicApis@https://git.gendocu.com/gendocu/GendocuPublicApis.git#master":
+  version "1.0.0"
+  resolved "https://git.gendocu.com/gendocu/GendocuPublicApis.git#83be829a28b0c28c85c18f8d8a2748efbfa58819"
   dependencies:
     "@improbable-eng/grpc-web" "^0.14.0"
     google-protobuf "^3.15.8"
@@ -5917,14 +5925,6 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
-gendocu-public-apis@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/gendocu-public-apis/-/gendocu-public-apis-1.0.0.tgz#ba9212207c6b4c9ba131b6cafb82deb07f068010"
-  integrity sha512-2XbY+joWdhBK2Z7b5NaP8+3NkOYZjHkqux83lpgdShp1QN9eu10s/MojCaJ7WiCTB7ZKIkfqUtWgWipDxDPjpw==
-  dependencies:
-    "@improbable-eng/grpc-web" "^0.14.0"
-    google-protobuf "^3.15.8"
-
 generic-names@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/generic-names/-/generic-names-2.0.1.tgz#f8a378ead2ccaa7a34f0317b05554832ae41b872"
@@ -6092,6 +6092,11 @@ google-protobuf@^3.19.1:
   version "3.19.1"
   resolved "https://registry.yarnpkg.com/google-protobuf/-/google-protobuf-3.19.1.tgz#5af5390e8206c446d8f49febaffd4b7f4ac28f41"
   integrity sha512-Isv1RlNC+IzZzilcxnlVSf+JvuhxmY7DaxYCBy+zPS9XVuJRtlTTIXR9hnZ1YL1MMusJn/7eSy2swCzZIomQSg==
+
+google-protobuf@^3.21.2:
+  version "3.21.2"
+  resolved "https://registry.yarnpkg.com/google-protobuf/-/google-protobuf-3.21.2.tgz#4580a2bea8bbb291ee579d1fefb14d6fa3070ea4"
+  integrity sha512-3MSOYFO5U9mPGikIYCzK0SaThypfGgS6bHqrUGXG3DPHCrb+txNqeEcns1W0lkGfk0rCyNXm7xB9rMxnCiZOoA==
 
 graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0:
   version "4.2.8"
