@@ -124,7 +124,7 @@ export const PseudomutoProtocGenDoc = ({
         })
         el.enums.forEach((e: EnumDocDescription) => {
           const typeDescription = new TypeDescription()
-          typeDescription.setTypeId(e.fullName)
+          typeDescription.setTypeId(getPrimitiveTypename(e.fullName))
           typeDescription.setFullName(e.fullName)
           typeDescription.setDescription(e.description)
           const enumDescription = new EnumDescription()

@@ -125,7 +125,7 @@ const FieldFields = (props: {
         arr.push(el)
         oneofMap.set(l, arr)
       })
-  } else if (!!tid && !tid.startsWith('TYPE_')) {
+  } else if (!!tid && !tid.startsWith('TYPE_') && !tid.startsWith('.google.protobuf.')) {
     console.error('unable to find type ', tid)
   }
   const m = Array.from(oneofMap)
